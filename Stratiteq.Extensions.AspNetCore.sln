@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29326.143
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Stratiteq.Extensions.AspNetCore.Swagger", "src\Stratiteq.Extensions.AspNetCore.Swagger\Stratiteq.Extensions.AspNetCore.Swagger.csproj", "{E33A5139-0F80-4ACC-922B-0CCD50064388}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E33A5139-0F80-4ACC-922B-0CCD50064388}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E33A5139-0F80-4ACC-922B-0CCD50064388}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E33A5139-0F80-4ACC-922B-0CCD50064388}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E33A5139-0F80-4ACC-922B-0CCD50064388}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1674B093-866A-4255-BFBE-8D4D7513B651}
+	EndGlobalSection
+EndGlobal
