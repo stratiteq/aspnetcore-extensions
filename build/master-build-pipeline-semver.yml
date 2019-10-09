@@ -11,6 +11,11 @@ variables:
   buildConfiguration: 'Release'
 
 steps:
+- task: GitVersion@5
+  displayName: 'GitVersion'
+  inputs:
+    preferBundledVersion: false
+    runtime: 'core'
 
 - task: DotNetCoreCLI@2
   displayName: 'dotnet restore from feed'
@@ -23,7 +28,7 @@ steps:
   displayName: 'dotnet build'
   inputs:
     projects: '$(parameters.projects)'
-    arguments: '--configuration $(BuildConfiguration)'
+    arguments: '--configuration $(BuildConfiguration) /p:Version=$(GitVersion.NuGetVersion)'
     versioningScheme: byBuildNumber
 
 - task: DotNetCoreCLI@2
@@ -38,6 +43,8 @@ steps:
     command: 'pack'
     packagesToPack: '$(parameters.projects)'
     nobuild: true
+    versioningScheme: byEnvVar
+    versionEnvVar: GitVersion.NuGetVersion
 
 - task: DotNetCoreCLI@2
   displayName: 'dotnet push'
@@ -46,4 +53,4 @@ steps:
     packagesToPush: '$(Build.ArtifactStagingDirectory)/*.nupkg'
     nuGetFeedType: 'internal'
     publishVstsFeed: '$(parameters.artifact-feed)'
-    versioningScheme: off
+    versioningScheme: byBuildNumber

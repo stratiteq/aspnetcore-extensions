@@ -2,6 +2,7 @@ mode: Mainline
 next-version: 1.0.0
 branches: 
     feature:
+        regex: feature?[/-]
         tag: alpha
     master:
         tag: ''
