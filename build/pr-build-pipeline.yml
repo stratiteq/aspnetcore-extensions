@@ -31,19 +31,3 @@ steps:
   inputs:
     command: 'test'
     projects: 'tests/**/*.csproj'
-
-- task: DotNetCoreCLI@2
-  displayName: 'dotnet pack'
-  inputs:
-    command: 'pack'
-    packagesToPack: '$(parameters.projects)'
-    nobuild: true
-
-- task: DotNetCoreCLI@2
-  displayName: 'dotnet push'
-  inputs:
-    command: 'push'
-    packagesToPush: '$(Build.ArtifactStagingDirectory)/*.nupkg'
-    nuGetFeedType: 'internal'
-    publishVstsFeed: '$(parameters.artifact-feed)'
-    versioningScheme: off
