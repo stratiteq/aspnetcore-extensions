@@ -7,7 +7,8 @@ Useful extension classes and methods for AspNetCore are found here.
 Extends the ProblemDetails class with an error code.
 
 Properties:
-|Property|Description|
+
+| Property | Description |
 |--|--|
 | ErrorCode | Gets the unique code for identifying the specific error within this API. |
 
