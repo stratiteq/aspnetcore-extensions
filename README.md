@@ -3,28 +3,28 @@
 ## Stratiteq.Extensions.AspNetCore 
 Useful extension classes and methods for AspNetCore are found here.
 
-###Stratiteq.Extensions.AspNetCore.ProblemDetailsExtensions.ProblemDetailsWithErrorCode
+### Stratiteq.Extensions.AspNetCore.ProblemDetailsExtensions.ProblemDetailsWithErrorCode
 Extends the ProblemDetails class with an error code.
 
 Properties:
-|ErrorCode|Gets the unique code for identifying the specific error within this API.|
+| ErrorCode | Gets the unique code for identifying the specific error within this API. |
 
 Methods:
-|CreateException|Creates a ProblemDetailsWithErrorCodeException.|
+| CreateException | Creates a ProblemDetailsWithErrorCodeException. |
 
-###Stratiteq.Extensions.AspNetCore.ProblemDetailsExtensions.ProblemDetailsWithErrorCodeCollection
+### Stratiteq.Extensions.AspNetCore.ProblemDetailsExtensions.ProblemDetailsWithErrorCodeCollection
 Collection of ProblemDetailsWithErrorCode objects. The error codes are guaranteed to be unique within this collection.
 
 Methods:
-|GetKeyForItem(ProblemDetailsWithErrorCode)||
+| GetKeyForItem(ProblemDetailsWithErrorCode) ||
 
-###ProblemDetailsWithErrorCodeException
+### ProblemDetailsWithErrorCodeException
 Exception that contains a ProblemDetailsWithErrorCode object.
 Properties:
-|ProblemDetailsWithErrorCode|Gets the ProblemDetailsWithErrorCode instance.|
+| ProblemDetailsWithErrorCode | Gets the ProblemDetailsWithErrorCode instance. |
 
 Methods:
-|ClearSensitiveInfo|Clears data from the Title and Details fields in ProblemDetailsWithErrorCode|
+| ClearSensitiveInfo | Clears data from the Title and Details fields in ProblemDetailsWithErrorCode |
 
 
 ## Stratiteq.Extensions.AspNetCore.Swagger
