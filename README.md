@@ -7,23 +7,29 @@ Useful extension classes and methods for AspNetCore are found here.
 Extends the ProblemDetails class with an error code.
 
 Properties:
+|Property|Description|
+|--|--|
 | ErrorCode | Gets the unique code for identifying the specific error within this API. |
 
 Methods:
+|--|--|
 | CreateException | Creates a ProblemDetailsWithErrorCodeException. |
 
 ### Stratiteq.Extensions.AspNetCore.ProblemDetailsExtensions.ProblemDetailsWithErrorCodeCollection
 Collection of ProblemDetailsWithErrorCode objects. The error codes are guaranteed to be unique within this collection.
 
 Methods:
+|--|--|
 | GetKeyForItem(ProblemDetailsWithErrorCode) ||
 
 ### ProblemDetailsWithErrorCodeException
 Exception that contains a ProblemDetailsWithErrorCode object.
 Properties:
+|--|--|
 | ProblemDetailsWithErrorCode | Gets the ProblemDetailsWithErrorCode instance. |
 
 Methods:
+|--|--|
 | ClearSensitiveInfo | Clears data from the Title and Details fields in ProblemDetailsWithErrorCode |
 
 
