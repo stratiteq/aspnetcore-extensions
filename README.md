@@ -13,6 +13,7 @@ Properties:
 | ErrorCode | Gets the unique code for identifying the specific error within this API. |
 
 Methods:
+
 | Method | Description |
 |--|--|
 | CreateException | Creates a ProblemDetailsWithErrorCodeException. |
@@ -21,18 +22,22 @@ Methods:
 Collection of ProblemDetailsWithErrorCode objects. The error codes are guaranteed to be unique within this collection.
 
 Methods:
+
 | Method | Description |
 |--|--|
 | GetKeyForItem(ProblemDetailsWithErrorCode) ||
 
 ### ProblemDetailsWithErrorCodeException
 Exception that contains a ProblemDetailsWithErrorCode object.
+
 Properties:
+
 | Property | Description |
 |--|--|
 | ProblemDetailsWithErrorCode | Gets the ProblemDetailsWithErrorCode instance. |
 
 Methods:
+
 | Method | Description |
 |--|--|
 | ClearSensitiveInfo | Clears data from the Title and Details fields in ProblemDetailsWithErrorCode |
