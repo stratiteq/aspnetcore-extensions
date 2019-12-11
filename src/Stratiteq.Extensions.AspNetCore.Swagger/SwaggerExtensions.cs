@@ -9,6 +9,7 @@ using Swashbuckle.AspNetCore.SwaggerGen;
 using Swashbuckle.AspNetCore.SwaggerUI;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Stratiteq.Extensions.AspNetCore.Swagger
 {
@@ -41,6 +42,7 @@ namespace Stratiteq.Extensions.AspNetCore.Swagger
         /// <param name="instance">The oauth2 endpoint.</param>
         /// <param name="clientId">The ClientId for oauth2 endpoint.</param>
         /// <param name="tenantId">The TenantId.</param>
+        /// <param name="appIdUri">The globally unique URI used to identify the web API. It is the prefix for scopes and in access tokens, it is the value of the audience claim. Also referred to as an identifier URI.</param>
         /// <param name="requestedScope">The scope that the application requests.</param>
         /// <exception cref="ArgumentNullException">Is thrown if any of the input parameters are null.</exception>
         public static void ConfigureOauth2Authentication(
@@ -48,7 +50,29 @@ namespace Stratiteq.Extensions.AspNetCore.Swagger
             string instance,
             string clientId,
             string tenantId,
+            string appIdUri,
             string requestedScope)
+        {
+            ConfigureOauth2Authentication(swaggerGenOptions, instance, clientId, tenantId, appIdUri, new string[] { requestedScope });
+        }
+
+        /// <summary>
+        /// Configure SwaggerGenOptions for oauth2 authentication.
+        /// </summary>
+        /// <param name="swaggerGenOptions">The SwaggerGenOptions instance to extend.</param>
+        /// <param name="instance">The oauth2 endpoint.</param>
+        /// <param name="clientId">The ClientId for oauth2 endpoint.</param>
+        /// <param name="tenantId">The TenantId.</param>
+        /// <param name="appIdUri">The globally unique URI used to identify the web API. It is the prefix for scopes and in access tokens, it is the value of the audience claim. Also referred to as an identifier URI.</param>
+        /// <param name="requestedScopes">The scopes that the application requests.</param>
+        /// <exception cref="ArgumentNullException">Is thrown if any of the input parameters are null.</exception>
+        public static void ConfigureOauth2Authentication(
+            this SwaggerGenOptions swaggerGenOptions,
+            string instance,
+            string clientId,
+            string tenantId,
+            string appIdUri,
+            string[] requestedScopes)
         {
             if (string.IsNullOrEmpty(instance))
             {
@@ -65,9 +89,14 @@ namespace Stratiteq.Extensions.AspNetCore.Swagger
                 throw new ArgumentNullException(nameof(tenantId));
             }
 
-            if (string.IsNullOrEmpty(requestedScope))
+            if (string.IsNullOrEmpty(appIdUri))
             {
-                throw new ArgumentNullException(nameof(requestedScope));
+                throw new ArgumentNullException(nameof(appIdUri));
+            }
+
+            if (requestedScopes == null || requestedScopes.Count() == 0)
+            {
+                throw new ArgumentNullException(nameof(requestedScopes));
             }
 
             swaggerGenOptions
@@ -79,10 +108,7 @@ namespace Stratiteq.Extensions.AspNetCore.Swagger
                         Implicit = new OpenApiOAuthFlow
                         {
                             AuthorizationUrl = new Uri($"{instance}{tenantId}/oauth2/v2.0/authorize", UriKind.Absolute),
-                            Scopes = new Dictionary<string, string>
-                            {
-                                { $"api://{clientId}/{requestedScope}", requestedScope },
-                            },
+                            Scopes = requestedScopes.ToDictionary(x => $"{appIdUri}/{x}", x => x),
                         },
                     },
                 });
@@ -99,7 +125,7 @@ namespace Stratiteq.Extensions.AspNetCore.Swagger
                                 Id = "oauth2",
                             },
                         },
-                    new[] { $"/{requestedScope}" }
+                    new[] { $"/{requestedScopes[0]}" }
                     },
                 });
         }
