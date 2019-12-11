@@ -10,6 +10,9 @@ variables:
   buildPlatform: 'Any CPU'
   buildConfiguration: 'Release'
 
+pr:
+- master
+
 steps:
 
 - task: DotNetCoreCLI@2

@@ -5,12 +5,12 @@
     <CodeAnalysisRuleSet>..\..\project.ruleset</CodeAnalysisRuleSet>
     <LangVersion>latest</LangVersion>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Description>Extension methods making it easy to configure OAUTH2 for SwaggerUI on AspNetCore.</Description>
+    <Description>.NET Standard 2.0 package with extension methods making it easy to configure OAUTH2 for SwaggerUI on AspNetCore.</Description>
     <Company>Stratiteq Sweden AB</Company>
     <Authors>Stratiteq Sweden AB</Authors>
     <AssemblyName>Stratiteq.Extensions.AspNetCore.Swagger</AssemblyName>
     <AssemblyVersion>1.0.0.0</AssemblyVersion>
-    <Version>1.0.0</Version>
+    <Version>1.1.0</Version>
     <GenerateAssemblyInfo>true</GenerateAssemblyInfo>
     <PackageIconUrl>https://www.stratiteq.com/wp-content/uploads/sq-logo-black-64x64.png</PackageIconUrl>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>

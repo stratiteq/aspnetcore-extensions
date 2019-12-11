@@ -10,6 +10,13 @@ variables:
   buildPlatform: 'Any CPU'
   buildConfiguration: 'Release'
 
+# specific branch build with batching
+trigger:
+  batch: true
+  branches:
+    include:
+    - master
+
 steps:
 
 - task: DotNetCoreCLI@2
