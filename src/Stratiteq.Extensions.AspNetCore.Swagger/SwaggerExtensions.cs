@@ -8,7 +8,6 @@ using Microsoft.OpenApi.Models;
 using Swashbuckle.AspNetCore.SwaggerGen;
 using Swashbuckle.AspNetCore.SwaggerUI;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 
 namespace Stratiteq.Extensions.AspNetCore.Swagger
@@ -94,7 +93,7 @@ namespace Stratiteq.Extensions.AspNetCore.Swagger
                 throw new ArgumentNullException(nameof(appIdUri));
             }
 
-            if (requestedScopes == null || requestedScopes.Count() == 0)
+            if (requestedScopes == null || requestedScopes.Length == 0)
             {
                 throw new ArgumentNullException(nameof(requestedScopes));
             }

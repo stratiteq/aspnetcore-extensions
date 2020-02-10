@@ -5,26 +5,22 @@
     <CodeAnalysisRuleSet>..\..\project.ruleset</CodeAnalysisRuleSet>
     <LangVersion>latest</LangVersion>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Description>.NET Standard 2.0 package with extension methods making it easy to configure OAUTH2 for SwaggerUI on AspNetCore.</Description>
+    <Description>.NET Standard 2.0 package with extension methods making it easy to configure OAUTH2 for SwaggerUI on ASP.NET Core.</Description>
     <Company>Stratiteq Sweden AB</Company>
     <Authors>Stratiteq Sweden AB</Authors>
     <AssemblyName>Stratiteq.Extensions.AspNetCore.Swagger</AssemblyName>
-    <Version>1.1.0</Version>
+    <Version>1.2.0</Version>
     <GenerateAssemblyInfo>true</GenerateAssemblyInfo>
     <PackageIconUrl>https://www.stratiteq.com/wp-content/uploads/sq-logo-black-64x64.png</PackageIconUrl>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageProjectUrl>https://github.com/stratiteq/aspnetcore-extensions</PackageProjectUrl>
     <RepositoryUrl>https://github.com/stratiteq/aspnetcore-extensions</RepositoryUrl>
-    <DocumentationFile>$(OutputPath)$(AssemblyName).xml</DocumentationFile>
+    <DocumentationFile>$(OutputPath)\$(Configuration)\$(AssemblyName).xml</DocumentationFile>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="GitVersion.CommandLine.DotNetCore" Version="5.0.2-beta1.71">
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-      <PrivateAssets>all</PrivateAssets>
-    </PackageReference>
     <PackageReference Include="StyleCop.Analyzers" Version="1.1.118" PrivateAssets="All" />
-    <PackageReference Include="Swashbuckle.AspNetCore" Version="5.0.0-rc4" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="5.0.0" />
   </ItemGroup>
 
   <ItemGroup>
