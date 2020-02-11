@@ -46,11 +46,10 @@ steps:
     packagesToPack: '$(parameters.projects)'
     nobuild: true
 
-- task: DotNetCoreCLI@2
-  displayName: 'dotnet push'
+- task: NuGetCommand@2
   inputs:
     command: 'push'
-    packagesToPush: '$(Build.ArtifactStagingDirectory)/*.nupkg'
+    packagesToPush: '$(Build.ArtifactStagingDirectory)/**/*.nupkg;'
     nuGetFeedType: 'internal'
     publishVstsFeed: '$(parameters.artifact-feed)'
-    versioningScheme: off
+    allowPackageConflicts: true
