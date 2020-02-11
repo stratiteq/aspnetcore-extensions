@@ -4,7 +4,7 @@
 # https://docs.microsoft.com/azure/devops/pipelines/apps/windows/dot-net
 
 pool:
-  vmImage: 'windows-latest'
+  vmImage: 'ubuntu-latest'
 
 variables:
   buildPlatform: 'Any CPU'
@@ -54,3 +54,4 @@ steps:
     nuGetFeedType: 'internal'
     publishVstsFeed: '$(parameters.artifact-feed)'
     versioningScheme: off
+    arguments : '--skip-duplicate'
